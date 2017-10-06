@@ -12,6 +12,8 @@
 		A452A8E71F87E230002F0974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A452A8E51F87E230002F0974 /* Main.storyboard */; };
 		A452A8E91F87E230002F0974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A452A8E81F87E230002F0974 /* Assets.xcassets */; };
 		A452A8EC1F87E230002F0974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A452A8EA1F87E230002F0974 /* LaunchScreen.storyboard */; };
+		A452A9121F8836B7002F0974 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A452A9111F8836B7002F0974 /* ReadViewController.swift */; };
+		A452A9141F88399B002F0974 /* SDMiSaeng.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A452A9131F883933002F0974 /* SDMiSaeng.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A452A8E81F87E230002F0974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A452A8EB1F87E230002F0974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A452A8ED1F87E230002F0974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A452A9111F8836B7002F0974 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
+		A452A9131F883933002F0974 /* SDMiSaeng.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SDMiSaeng.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,9 @@
 			children = (
 				A452A8E11F87E230002F0974 /* AppDelegate.swift */,
 				A452A8E31F87E230002F0974 /* ViewController.swift */,
+				A452A9111F8836B7002F0974 /* ReadViewController.swift */,
 				A452A8E51F87E230002F0974 /* Main.storyboard */,
+				A452A9131F883933002F0974 /* SDMiSaeng.ttf */,
 				A452A8E81F87E230002F0974 /* Assets.xcassets */,
 				A452A8EA1F87E230002F0974 /* LaunchScreen.storyboard */,
 				A452A8ED1F87E230002F0974 /* Info.plist */,
@@ -123,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A452A9141F88399B002F0974 /* SDMiSaeng.ttf in Resources */,
 				A452A8EC1F87E230002F0974 /* LaunchScreen.storyboard in Resources */,
 				A452A8E91F87E230002F0974 /* Assets.xcassets in Resources */,
 				A452A8E71F87E230002F0974 /* Main.storyboard in Resources */,
@@ -137,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A452A8E41F87E230002F0974 /* ViewController.swift in Sources */,
+				A452A9121F8836B7002F0974 /* ReadViewController.swift in Sources */,
 				A452A8E21F87E230002F0974 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

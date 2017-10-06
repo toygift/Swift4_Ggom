@@ -25,8 +25,8 @@ class ViewController: UIViewController {
         let labelEmail = UILabel()
         labelEmail.frame = CGRect(x: 30, y: 100, width: 100, height: 30)
         labelEmail.text = "이메일"
-        labelEmail.font = UIFont.systemFont(ofSize: 14)
-        //labelEmail.font = UIFont(name: "Chalkboard SE", size: 14) -> 폰트의 종류까지 지정하고자 할 경우
+//        labelEmail.font = UIFont.systemFont(ofSize: 14)
+        labelEmail.font = UIFont(name: "SDMisaeng", size: 14)// -> 폰트의 종류까지 지정하고자 할 경우
         self.view.addSubview(labelEmail)
         // 3. 갱신레이블
         let labelUpdate = UILabel()
@@ -75,14 +75,29 @@ class ViewController: UIViewController {
         self.txtInterval.text = "0분마다"
         self.view.addSubview(self.txtInterval)
         
-        self.paramUpdate.addTarget(self, action: #selector(presentUpdateValue(_:)), for: .valueChanged)
-        self.paramInterval.addTarget(self, action: #selector(presentIntervalValue(_:)), for: .valueChanged)
+        self.paramUpdate.addTarget(self, action: #selector(presentUpdateValue(_:)), for: .valueChanged) // 1
+        self.paramInterval.addTarget(self, action: #selector(presentIntervalValue(_:)), for: .valueChanged) // 2
+        
+        let submitBtn = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(submit(_:))) // 3
+        self.navigationItem.rightBarButtonItem = submitBtn
+        
     }
+    // 1
     @objc func presentUpdateValue(_ sender: UISwitch) {
         self.txtUpdate.text = (sender.isOn == true ? "갱신함" : "갱신하지 않음")
     }
+    // 2
     @objc func presentIntervalValue(_ sender: UIStepper) {
         self.txtInterval.text = ("\(Int(sender.value))분마다")
+    }
+    // 3
+    @objc func submit(_ sender: UIBarButtonItem) {
+        let rvc = ReadViewController()
+        rvc.pEmail = self.paramEmail.text
+        rvc.pUpdate = self.paramUpdate.isOn
+        rvc.pInterval = self.paramInterval.value
+        
+        self.navigationController?.pushViewController(rvc, animated: true)
     }
 }
 
