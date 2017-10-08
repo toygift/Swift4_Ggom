@@ -24,7 +24,17 @@
                         <view key="tableFooterView" contentMode="scaleToFill" id="eK6-Fb-TBV">
                             <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BN8-gi-oAN" customClass="CSLogButton" customModule="MyMemory" customModuleProvider="target">
+                                    <rect key="frame" x="168" y="7" width="39" height="30"/>
+                                    <state key="normal" title="더보기"/>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="BN8-gi-oAN" firstAttribute="centerX" secondItem="eK6-Fb-TBV" secondAttribute="centerX" id="HqC-Gi-LGB"/>
+                                <constraint firstItem="BN8-gi-oAN" firstAttribute="centerY" secondItem="eK6-Fb-TBV" secondAttribute="centerY" id="f4g-0k-9KX"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="memoCell" rowHeight="80" id="QeN-lj-ASX" customClass="MemoCell" customModule="MyMemory" customModuleProvider="target">
