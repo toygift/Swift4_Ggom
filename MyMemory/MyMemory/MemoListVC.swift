@@ -27,6 +27,12 @@ class MemoListVC: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        let ud = UserDefaults.standard
+        if ud.bool(forKey: UserInfoKey.tutorial) == false {
+            let vc = self.instanceTutorailVC(name: "MasterVC")
+            self.present(vc!, animated: false, completion: nil)
+            return
+        }
         self.tableView.reloadData()
     }
     // MARK: - Table view data source
