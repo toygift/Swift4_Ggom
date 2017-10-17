@@ -8,12 +8,16 @@
 
 import UIKit
 
-class MemoListVC: UITableViewController {
+class MemoListVC: UITableViewController, UISearchBarDelegate {
 
+    lazy var dao = MemoDAO()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    @IBOutlet var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.enablesReturnKeyAutomatically = false
         
         if let revealVC = self.revealViewController() {
             let btn = UIBarButtonItem()
@@ -33,11 +37,10 @@ class MemoListVC: UITableViewController {
             self.present(vc!, animated: false, completion: nil)
             return
         }
+        self.appDelegate.memolist = self.dao.fetch()
         self.tableView.reloadData()
     }
     // MARK: - Table view data source
-
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = self.appDelegate.memolist.count
         return count
@@ -62,5 +65,22 @@ class MemoListVC: UITableViewController {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoRead") as? MemoReadVC else { return }
         vc.param = row
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let data = self.appDelegate.memolist[indexPath.row]
+        if dao.delete(data.objectID!) {
+            self.appDelegate.memolist.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    // MARK: - SearchBar
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let keyword = searchBar.text
+        
+        self.appDelegate.memolist = self.dao.fetch(keyword: keyword)
+        self.tableView.reloadData()
     }
 }
